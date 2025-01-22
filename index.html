@@ -3,6 +3,10 @@
 <html lang="en">
 
 <head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fantasy Mmadness</title>
@@ -13,7 +17,6 @@
     <link rel="stylesheet" href="assets/css/all.min.css">
     <link rel="stylesheet" href="assets/css/line-awesome.min.css">
     <link rel="stylesheet" href="assets/css/lib/animate.css">
-
     <!-- Plugin Link -->
     <link rel="stylesheet" href="assets/css/lib/slick.css">
 
@@ -22,7 +25,6 @@
 </head>
 
 <body data-bs-spy="scroll" data-bs-offset="170" data-bs-target=".privacy-policy-sidebar-menu">
-
     <div class="overlay"></div>
     <div class="preloader">
         <div class="scene" id="scene">
@@ -161,6 +163,461 @@
         </div>
     </section>
     <!-- About Section Ends Here -->
+<section class="machine-section">
+  <div class="mainContainer">
+    <div class="loader-container" id="btn-example1">
+      <img src="assets/background/bag.png" alt="Slot Machine Image">
+    </div>
+      <div class="slotwrapper" id="example1">
+        <ul>
+          <li><img src="https://i.ibb.co/kQjyTLY/two.webp" alt="Slot 1"></li>
+        </ul>
+        <ul>
+          <li><img src="https://i.ibb.co/kQjyTLY/two.webp" alt="Slot 2"></li>
+        </ul>
+        <ul>
+          <li><img src="https://i.ibb.co/kQjyTLY/two.webp" alt="Slot 3"></li>
+        </ul>
+      </div>
+    <h1 id="results-heading"></h1>
+	 <canvas id="confettiCanvas" style="position: absolute; top: 0; left: 0; pointer-events: none;"></canvas>
+	 <center>
+	 <img src="https://res.cloudinary.com/daflot6fo/image/upload/v1736068036/bywcrrcqmcyczdyhjmdv.png" class="logoInMachine"></center>
+  </div>
+</section>
+
+<style>
+.machine-section{
+	background-image:url(assets/background/five.png);
+	background-position:center;
+	background-size:cover;
+	background-repeat:no-repeat;
+	height:100vh;
+	 position: relative;
+  overflow: hidden;
+  display:flex;
+  justify-content:center;
+}
+  .machine-section h1 {
+    text-align: center;
+    margin: 23px 0;
+	margin-top:40px;
+    font-size: 29px;
+	color:#fff;
+	  text-shadow: 2px 2px 4px #350b2d; /* Add the text shadow */
+	  background:rgba(0,0,0,0.4);
+	   margin-left:30px;
+
+  }
+
+  .loader-container {
+  position:absolute;
+  top:0;
+  left:50%;
+  transform:translateX(-50%);
+  cursor:pointer;
+   
+  }
+.loader-container img{
+	width:500px;
+	transition: transform 0.5s ease-out;
+	}
+	
+    /* Disappear Animation */
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        display: none;
+      }
+    }
+
+    .hide {
+      animation: fadeOut 0.5s forwards;
+    }
+	
+  .slotwrapper {
+   width:300px;
+   margin-left:30px;
+  overflow: hidden;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  padding: 0 25px;
+  margin-top:30px;
+   background-color: hsl(200, 100%, 5%);
+  border: 2px solid hsl(200,100%,50%); /* Neon border color */
+  box-shadow:   0 0 0.1em hsl(200,100%,50%), 0 0 0.5em hsl(200,100%,50%), 0 0 1em hsl(200,100%,50%);
+}
+
+
+
+  .slotwrapper ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: relative;
+    float: left;
+    width: 200px;
+    height: 100px;
+    text-align: center;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+  }
+
+  .slotwrapper ul li img {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+  }
+
+  button#btn-example1:hover > img {
+    filter: drop-shadow(2px 4px 6px yellow);
+  }
+
+  button#btn-example1 > img {
+    transition: 0.4s all ease-in-out;
+    user-select: none;
+  }
+
+  :not(button) img {
+    pointer-events: none;
+  }
+  
+  
+  
+  
+.down {
+    animation-name: slotspin;
+    animation-iteration-count: infinite;
+    animation-duration: 0.1s;
+}
+
+.up {
+    animation-name: slotspin_rev;
+    animation-iteration-count: infinite;
+    animation-duration: 0.1s;
+}
+
+@keyframes slotspin {
+    0%{
+        transform: translateY(-110px);
+    }
+    100%{
+        transform: translateY(110px);
+    }
+}
+
+@keyframes slotspin_rev {
+    0%{
+        transform: translateY(110px);
+    }
+    100%{
+        transform: translateY(-110px);
+    }
+}
+.logoInMachine{
+	width:130px;
+	  margin-left:30px;
+	  margin-top:50px;
+  display: none;
+  opacity: 0;
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+#example1 {
+  display: none;
+  opacity: 0;
+}
+
+/* Blinking box-shadow for the slotwrapper */
+@keyframes blink-green {
+  0%, 100% {
+    box-shadow: 0 0 0.5em green, 0 0 1em green, 0 0 1.5em green;
+  }
+  50% {
+    box-shadow: 0 0 0.2em green, 0 0 0.7em green, 0 0 1em green;
+  }
+}
+
+@keyframes blink-red {
+  0%, 100% {
+    box-shadow: 0 0 0.5em red, 0 0 1em red, 0 0 1.5em red;
+  }
+  50% {
+    box-shadow: 0 0 0.2em red, 0 0 0.7em red, 0 0 1em red;
+  }
+}
+
+/* Blinking text-shadow for the heading */
+@keyframes text-blink-green {
+  0%, 100% {
+    text-shadow: 0 0 5px green, 0 0 10px green, 0 0 15px green;
+  }
+  50% {
+    text-shadow: 0 0 2px green, 0 0 5px green, 0 0 10px green;
+  }
+}
+
+@keyframes text-blink-red {
+  0%, 100% {
+    text-shadow: 0 0 5px red, 0 0 10px red, 0 0 15px red;
+  }
+  50% {
+    text-shadow: 0 0 2px red, 0 0 5px red, 0 0 10px red;
+  }
+}
+
+/* Default styling */
+.slotwrapper {
+  width: 300px;
+  margin-left: 30px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 25px;
+  margin-top: 30px;
+  background-color: hsl(200, 100%, 5%);
+  border: 2px solid hsl(200, 100%, 50%);
+  box-shadow: 0 0 0.1em hsl(200, 100%, 50%), 0 0 0.5em hsl(200, 100%, 50%), 0 0 1em hsl(200, 100%, 50%);
+}
+
+.machine-section h1 {
+  text-align: center;
+  margin: 23px 0;
+  margin-top: 40px;
+  font-size: 29px;
+  color: #fff;
+  text-shadow: 2px 2px 4px #350b2d;
+  background: rgba(0, 0, 0, 0.4);
+  margin-left: 30px;
+ 
+}
+
+
+</style>
+<script>
+  const value1 = document.querySelector("#example1 ul:nth-child(1) li img");
+  const value2 = document.querySelector("#example1 ul:nth-child(2) li img");
+  const value3 = document.querySelector("#example1 ul:nth-child(3) li img");
+  const resultsHeading = document.getElementById("results-heading");
+  const machineactual = document.getElementById("machineactual");
+  let running = false;
+
+  // Create and initialize a canvas for the confetti animation
+  const canvas = document.createElement("canvas");
+  canvas.id = "confettiCanvas";
+  canvas.style.position = "fixed";
+  canvas.style.top = "0";
+  canvas.style.left = "0";
+  canvas.style.width = "100%";
+  canvas.style.height = "100%";
+  canvas.style.pointerEvents = "none";
+  document.body.appendChild(canvas);
+  const ctx = canvas.getContext("2d");
+
+  const blinkingFilter = () => {
+    let isFiltered = false;
+
+    // Start the interval
+    const intervalId = setInterval(() => {
+      if (isFiltered) {
+        machineactual.style.filter = "none"; // Remove the filter
+      } else {
+        machineactual.style.filter = "drop-shadow(6px 12px 18px yellow)"; // Apply the filter
+      }
+      isFiltered = !isFiltered; // Toggle the filter state
+    }, 500); // Interval for blinking effect
+
+    // Stop the interval after 5 seconds
+    setTimeout(() => {
+      clearInterval(intervalId); // Clear the interval
+      machineactual.style.filter = "none"; // Ensure filter is removed
+    }, 5000); // 5000 milliseconds = 5 seconds
+  };
+
+  const values = [
+    "https://i.ibb.co/DC0QTm5/one-removebg-preview-1.png",
+    "https://i.ibb.co/kQjyTLY/two.webp",
+    "https://res.cloudinary.com/daflot6fo/image/upload/v1736068036/bywcrrcqmcyczdyhjmdv.png",
+  ];
+
+  function getRandomImage() {
+    return values[Math.floor(Math.random() * values.length)];
+  }
+
+  // Confetti animation logic
+  const confettiCount = 200;
+  let particles = [];
+  const colors = ["#FF5733", "#FFC300", "#DAF7A6", "#C70039", "#900C3F", "#581845"];
+
+  function createParticle() {
+    return {
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height - canvas.height,
+      speedX: Math.random() * 4 - 2,
+      speedY: Math.random() * 3 + 2,
+      radius: Math.random() * 3 + 2,
+      color: colors[Math.floor(Math.random() * colors.length)],
+    };
+  }
+
+  function renderConfetti() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    particles.forEach((particle, index) => {
+      ctx.beginPath();
+      ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+      ctx.fillStyle = particle.color;
+      ctx.fill();
+
+      particle.x += particle.speedX;
+      particle.y += particle.speedY;
+
+      if (particle.y > canvas.height) {
+        particles[index] = createParticle();
+      }
+    });
+
+    requestAnimationFrame(renderConfetti);
+  }
+
+  function startConfetti() {
+    particles = Array.from({ length: confettiCount }, createParticle);
+    renderConfetti();
+    setTimeout(() => {
+      particles = [];
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }, 5000); // Confetti lasts for 5 seconds
+  }
+  
+  
+  
+  
+  const audio = new Audio("song.mp3"); // Load the MP3 file
+audio.loop = true; // Enable infinite looping
+audio.volume = 0.5; // Optional: Set volume (0.0 to 1.0)
+const start_btn = document.getElementById("btn-example1");
+const slotwrapper = document.getElementById("example1");
+const logoanim = document.querySelector(".logoInMachine");
+start_btn.onclick = function () {
+  if (running) return;
+  running = true;
+
+  // Start playing the audio
+  audio.play();
+  const img = start_btn.querySelector("img");
+  img.style.transition = "transform 0.5s ease-out";
+  img.style.transform = "scale(1.4) translateY(-20px)";
+
+  setTimeout(() => {
+    img.style.transform = "scale(0) translateY(-20px)";
+
+    setTimeout(() => {
+      start_btn.style.transition = "opacity 0.5s ease-out"; // Smooth fade-out
+      start_btn.style.opacity = "0";
+
+      setTimeout(() => {
+        start_btn.style.display = "none"; // Hide element after fade-out
+
+        // Bring the slotwrapper onto the screen
+		
+   logoanim.style.display = "flex"; // Or any display style you prefer
+        logoanim.style.opacity = "0"; // Start hidden
+        logoanim.style.transition = "opacity 0.5s ease-in-out";
+          
+	 slotwrapper.style.display = "flex"; // Or any display style you prefer
+        slotwrapper.style.opacity = "0"; // Start hidden
+        slotwrapper.style.transition = "opacity 0.5s ease-in-out";
+        setTimeout(() => {
+          slotwrapper.style.opacity = "1"; // Fade in the slotwrapper
+		    logoanim.style.opacity = "1"; 
+        }, 50); // Slight delay to ensure display is applied before opacity
+      }, 500); // Matches the fade-out duration
+    }, 500); // Matches the scale-down duration
+  }, 500); // Matches the scale-up duration
+
+  start_btn.setAttribute("disabled", "disabled");
+  value1.classList.add("down");
+  value2.classList.add("up");
+  value3.classList.add("down");
+
+  function animateSlot() {
+    const iterations = 50;
+    const interval = 200;
+
+    let currentIteration = 0;
+    const animationInterval = setInterval(() => {
+      value1.src = getRandomImage();
+      value2.src = getRandomImage();
+      value3.src = getRandomImage();
+
+      currentIteration++;
+
+      if (currentIteration >= iterations) {
+        clearInterval(animationInterval);
+
+        if (value1.src === value2.src && value2.src === value3.src) {
+          value1.classList.remove("down");
+          value2.classList.remove("up");
+          value3.classList.remove("down");
+		   slotwrapper.style.animation = "blink-green 1s infinite";
+   slotwrapper.style.border = "none";
+              
+	   resultsHeading.style.animation = "text-blink-green 1s infinite";
+		 resultsHeading.style.padding = "5px 10px";
+          blinkingFilter();
+          startConfetti();
+          resultsHeading.innerText =
+            "You won 200 tokens!!";
+        } else {
+          value1.classList.remove("down");
+          value2.classList.remove("up");
+          value3.classList.remove("down");
+          blinkingFilter();
+		  slotwrapper.style.border = "none";
+		  resultsHeading.style.padding = "5px 10px";
+  slotwrapper.style.animation = "blink-red 1s infinite";
+        resultsHeading.style.animation = "text-blink-red 1s infinite";
+          resultsHeading.innerText = "Better luck next time!";
+        }
+
+        start_btn.removeAttribute("disabled");
+        running = false;
+		audio.pause();
+      }
+    }, interval);
+  }
+
+  animateSlot();
+};
+
+
+  // Resize canvas dynamically
+  window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+
+  // Set initial canvas size
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+</script>
+
 
 
     <!-- Game Section Starts Here -->
