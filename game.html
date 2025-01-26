@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fantasy Mmadness</title>
+    <!-- Importing the Anton font -->
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <!-- Linking the CSS file -->
+    <link rel="stylesheet" href="styles.css">
+	 <!-- Favicon and Apple Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+
+</head>
+<body>
+   
+  <div class="container">
+	
+	<section class="machine-section">
+  <div class="mainContainer">
+    <div class="loader-container" id="btn-example1">
+      <img src="assets/background/bag.png" alt="Slot Machine Image">
+    </div>
+	<div class="slot-wrapp" id="machineactual">
+      <div class="slotwrapper" id="example1">
+        <ul>
+          <li><img src="https://i.ibb.co/kQjyTLY/two.webp" alt="Slot 1"></li>
+        </ul>
+        <ul>
+          <li><img src="https://i.ibb.co/kQjyTLY/two.webp" alt="Slot 2"></li>
+        </ul>
+        <ul>
+          <li><img src="https://i.ibb.co/kQjyTLY/two.webp" alt="Slot 3"></li>
+        </ul>
+      </div>
+	  
+	  
+	  <div class="dotupper dotone"></div>
+	  <div class="dotupper dottwo"></div>
+	   <div class="dotupper dotthree"></div>
+	  <div class="dotupper dotfour"></div>
+		  <div class="dotupper dotfive"></div>
+		   <div class="dotupper dotsix"></div>
+		    <div class="dotupper dotseven"></div>
+			 <div class="dotupper doteight"></div>
+	 		 <div class="dotupper dotnine"></div>
+	 		 <div class="dotupper dotten"></div>
+	 		 <div class="dotupper doteleven"></div>
+	 		 <div class="dotupper dottwelve"></div>
+	 		 <div class="dotupper dotthirteen"></div>
+	 	
+	
+
+  <div class="dot dotfourteen"></div>
+	  <div class="dot dotfifteen"></div>
+	   <div class="dot dotsixteen"></div>
+	  <div class="dot dotseventeen"></div>
+		  <div class="dot doteighteen"></div>
+		   <div class="dot dotninteen"></div>
+		    <div class="dot dottwenty"></div>
+			 <div class="dot dottwentyone"></div>
+	 		 <div class="dot dottwentytwo"></div>
+	 		 <div class="dot dottwentythree"></div>
+	 		 <div class="dot dottwentyfour"></div>
+	 		 <div class="dot dottwentyfive"></div>
+	 		 <div class="dot dottwentysix"></div>
+			 
+			 
+			 
+			  <div class="dot dottwentyseven"></div>
+			   <div class="dot dottwentyeight"></div>
+			    <div class="dot dottwentynine"></div>
+				 <div class="dot dotthirty"></div>
+				  <div class="dot dotthirtyone"></div>
+				   <div class="dot dotthirtytwo"></div>
+				   <div class="dot dotthirtythree"></div>
+				   <div class="dot dotthirtyfour"></div>
+				 
+	  
+    <canvas id="confettiCanvas" style="position: absolute; top: 0; left: 0; pointer-events: none;"></canvas>
+	 <center>
+	 <img src="https://res.cloudinary.com/daflot6fo/image/upload/v1736068036/bywcrrcqmcyczdyhjmdv.png" class="logoInMachine"></center>
+  </div>
+</section>
+ <h1 id="results-heading"></h1>
+	
+	<div class="absoluteImg">
+	<h1>Fight Night</h1>
+		<img src="images/two.png">
+	</div>
+
+<img src="images/logo.png" class="logo">
+
+<img src="images/seven.png" class="branding">
+  </div> 
+   <script>
+  const value1 = document.querySelector("#example1 ul:nth-child(1) li img");
+  const value2 = document.querySelector("#example1 ul:nth-child(2) li img");
+  const value3 = document.querySelector("#example1 ul:nth-child(3) li img");
+  const resultsHeading = document.getElementById("results-heading");
+  const machineactual = document.getElementById("machineactual");
+  let running = false;
+
+  // Create and initialize a canvas for the confetti animation
+  const canvas = document.createElement("canvas");
+  canvas.id = "confettiCanvas";
+  canvas.style.position = "fixed";
+  canvas.style.top = "0";
+  canvas.style.left = "0";
+  canvas.style.width = "100%";
+  canvas.style.height = "100%";
+  canvas.style.pointerEvents = "none";
+  document.body.appendChild(canvas);
+  const ctx = canvas.getContext("2d");
+
+  const blinkingFilter = () => {
+    let isFiltered = false;
+
+    // Start the interval
+    const intervalId = setInterval(() => {
+      if (isFiltered) {
+        machineactual.style.filter = "none"; // Remove the filter
+      } else {
+        machineactual.style.filter = "drop-shadow(6px 12px 18px yellow)"; // Apply the filter
+      }
+      isFiltered = !isFiltered; // Toggle the filter state
+    }, 500); // Interval for blinking effect
+
+    // Stop the interval after 5 seconds
+    setTimeout(() => {
+      clearInterval(intervalId); // Clear the interval
+      machineactual.style.filter = "none"; // Ensure filter is removed
+    }, 5000); // 5000 milliseconds = 5 seconds
+  };
+
+  const values = [
+    "https://i.ibb.co/DC0QTm5/one-removebg-preview-1.png",
+    "https://i.ibb.co/kQjyTLY/two.webp",
+    "https://res.cloudinary.com/daflot6fo/image/upload/v1736068036/bywcrrcqmcyczdyhjmdv.png",
+  ];
+
+  function getRandomImage() {
+    return values[Math.floor(Math.random() * values.length)];
+  }
+
+  // Confetti animation logic
+  const confettiCount = 200;
+  let particles = [];
+  const colors = ["#FF5733", "#FFC300", "#DAF7A6", "#C70039", "#900C3F", "#581845"];
+
+  function createParticle() {
+    return {
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height - canvas.height,
+      speedX: Math.random() * 4 - 2,
+      speedY: Math.random() * 3 + 2,
+      radius: Math.random() * 3 + 2,
+      color: colors[Math.floor(Math.random() * colors.length)],
+    };
+  }
+
+  function renderConfetti() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    particles.forEach((particle, index) => {
+      ctx.beginPath();
+      ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+      ctx.fillStyle = particle.color;
+      ctx.fill();
+
+      particle.x += particle.speedX;
+      particle.y += particle.speedY;
+
+      if (particle.y > canvas.height) {
+        particles[index] = createParticle();
+      }
+    });
+
+    requestAnimationFrame(renderConfetti);
+  }
+
+  function startConfetti() {
+    particles = Array.from({ length: confettiCount }, createParticle);
+    renderConfetti();
+    setTimeout(() => {
+      particles = [];
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }, 5000); // Confetti lasts for 5 seconds
+  }
+  
+  
+  
+  
+  const audio = new Audio("song.mp3"); // Load the MP3 file
+audio.loop = true; // Enable infinite looping
+audio.volume = 0.5; // Optional: Set volume (0.0 to 1.0)
+const start_btn = document.getElementById("btn-example1");
+const slotwrapper = document.getElementById("machineactual");
+const dots = document.querySelectorAll(".dot, .dotupper");
+
+
+start_btn.onclick = function () {
+  if (running) return;
+  running = true;
+
+  // Start playing the audio
+  audio.play();
+  const img = start_btn.querySelector("img");
+  img.style.transition = "transform 0.5s ease-out";
+  img.style.transform = "scale(1.4) translateY(-20px)";
+
+  setTimeout(() => {
+    img.style.transform = "scale(0) translateY(-20px)";
+
+    setTimeout(() => {
+      start_btn.style.transition = "opacity 0.5s ease-out"; // Smooth fade-out
+      start_btn.style.opacity = "0";
+
+      setTimeout(() => {
+        start_btn.style.display = "none"; // Hide element after fade-out
+
+        // Bring the slotwrapper onto the screen
+	      
+	 slotwrapper.style.display = "flex"; // Or any display style you prefer
+        slotwrapper.style.transition = "opacity 0.5s ease-in-out";
+        setTimeout(() => {
+          slotwrapper.style.opacity = "1"; // Fade in the slotwrapper
+		 }, 50); // Slight delay to ensure display is applied before opacity
+      }, 500); // Matches the fade-out duration
+    }, 500); // Matches the scale-down duration
+  }, 500); // Matches the scale-up duration
+
+  start_btn.setAttribute("disabled", "disabled");
+  value1.classList.add("down");
+  value2.classList.add("up");
+  value3.classList.add("down");
+
+  function animateSlot() {
+    const iterations = 50;
+    const interval = 200;
+
+    let currentIteration = 0;
+    const animationInterval = setInterval(() => {
+      value1.src = getRandomImage();
+      value2.src = getRandomImage();
+      value3.src = getRandomImage();
+
+      currentIteration++;
+
+      if (currentIteration >= iterations) {
+        clearInterval(animationInterval);
+
+        if (value1.src === value2.src && value2.src === value3.src) {
+          value1.classList.remove("down");
+          value2.classList.remove("up");
+          value3.classList.remove("down");
+		         dots.forEach(dot => {
+            dot.classList.remove("dotlose");
+            dot.classList.add("dotwin"); // Add win effect
+        });
+		 resultsHeading.style.padding = "5px 10px";
+          blinkingFilter();
+          startConfetti();
+          resultsHeading.innerText =
+            "You won 200 tokens!!";
+        } else {
+          value1.classList.remove("down");
+          value2.classList.remove("up");
+          value3.classList.remove("down");
+          blinkingFilter();
+		    dots.forEach(dot => {
+            dot.classList.remove("dotwin");
+            dot.classList.add("dotlose"); // Add lose effect
+        });
+		  resultsHeading.style.padding = "5px 10px";
+          resultsHeading.innerText = "Better luck next time!";
+        }
+
+        start_btn.removeAttribute("disabled");
+        running = false;
+		 // audio.pause();
+      }
+    }, interval);
+  }
+
+  animateSlot();
+};
+
+
+  // Resize canvas dynamically
+  window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+
+  // Set initial canvas size
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+</script>
+
+
+</body>
+</html>
