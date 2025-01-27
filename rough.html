@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Boxing Bag</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+            overflow: hidden;
+        }
+
+        .loader-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            z-index: 999;
+        }
+
+        .loader-container .imgone {
+            height: 300px;
+            transition: transform 0.3s ease-out;
+            transform-origin: top center; /* Keep the top fixed */
+			z-index:5;
+        }
+
+        .loader-container .imgtwo {
+            width: 200px;
+            transition: transform 0.3s ease-out;
+            transform-origin: top center; /* Keep the top fixed */
+        }
+
+        .glove {
+            position: absolute;
+            width: 150px;
+            transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+            display: none;
+			z-index:5;
+        }
+
+        .light-effect {
+		z-index:1;
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 255, 0, 0.8) 0%, rgba(255, 255, 0, 0) 70%);
+            border-radius: 50%;
+            top: calc(50% + 100px);
+            left: 50%;
+            transform: translate(-50%, 0);
+            opacity: 0;
+            pointer-events: none;
+            z-index: 998;
+        }
+
+        #slotwrapper {
+            display: none;
+            opacity: 0;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            font-size: 24px;
+            font-family: Arial, sans-serif;
+        }
+
+        .hit {
+            animation: tilt-and-bend 0.8s ease-out;
+        }
+
+        @keyframes tilt-and-bend {
+            0% {
+                transform: rotate(0deg);
+            }
+            20% {
+                transform: rotate(-10deg);
+            }
+            40% {
+                transform: rotate(10deg);
+            }
+            60% {
+                transform: rotate(0deg) skewX(-5deg);
+            }
+            80% {
+                transform: skewX(5deg);
+            }
+            100% {
+                transform: rotate(0deg) skewX(0deg);
+            }
+        }
+
+        @keyframes glove-punch {
+            0% {
+                transform: translate(0, 0);
+                opacity: 1;
+            }
+            30% {
+                transform: translate(-10px, 10px);
+            }
+            60% {
+                transform: translate(-40px, 40px);
+            }
+            100% {
+                transform: translate(-60px, 60px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes light-flash {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loader-container" id="btn-example1">
+        <img src="images/bag.png" alt="Boxing Bag Image" class="imgone">
+        <img src="images/glove.png" class="glove" id="glove" alt="Boxing Glove">
+        <div class="light-effect" id="light-effect"></div>
+    </div>
+
+    <div id="slotwrapper">
+        <p>The boxing slot machine is here!</p>
+    </div>
+
+    <script>
+        const start_btn = document.getElementById("btn-example1");
+        const glove = document.getElementById("glove");
+        const lightEffect = document.getElementById("light-effect");
+        const slotwrapper = document.getElementById("slotwrapper");
+
+        start_btn.onclick = function (event) {
+            const img = start_btn.querySelector(".imgone");
+
+            // Show and animate the glove punch
+            const rect = img.getBoundingClientRect();
+            glove.style.display = "block";
+            glove.style.opacity = "1";
+            glove.style.transition = "transform 0.4s ease-out";
+            glove.style.transform = `translate(${event.clientX - rect.left - 100}px, ${event.clientY - rect.top - 100}px)`;
+
+            setTimeout(() => {
+                glove.style.animation = "glove-punch 0.6s ease-out";
+            }, 100);
+
+            setTimeout(() => {
+                glove.style.display = "none";
+                glove.style.animation = "none";
+            }, 600);
+
+            // Animate the bag with tilt and bend effects
+            img.classList.add("hit");
+
+            // Trigger the light effect
+            lightEffect.style.animation = "light-flash 0.5s ease-out";
+
+            setTimeout(() => {
+                img.classList.remove("hit");
+            }, 800);
+
+            // Animate the disappearance and show slotwrapper
+            setTimeout(() => {
+                start_btn.style.transition = "opacity 0.5s ease-out"; // Smooth fade-out
+                start_btn.style.opacity = "0";
+
+                setTimeout(() => {
+                    start_btn.style.display = "none"; // Hide element after fade-out
+
+                    // Bring the slotwrapper onto the screen
+                    slotwrapper.style.display = "flex"; // Or any display style you prefer
+                    slotwrapper.style.transition = "opacity 0.5s ease-in-out";
+                    setTimeout(() => {
+                        slotwrapper.style.opacity = "1"; // Fade in the slotwrapper
+                    }, 50); // Slight delay to ensure display is applied before opacity
+                }, 500); // Matches the fade-out duration
+            }, 1000);
+        };
+    </script>
+</body>
+</html>

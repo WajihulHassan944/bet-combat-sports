@@ -21,9 +21,12 @@
 	
 	<section class="machine-section">
   <div class="mainContainer">
-    <div class="loader-container" id="btn-example1">
-      <img src="assets/background/bag.png" alt="Slot Machine Image">
+     <div class="loader-container" id="btn-example1">
+        <img src="images/bag.png" alt="Boxing Bag Image" class="imgone">
+        <img src="images/glove.png" class="glove" id="glove" alt="Boxing Glove">
+        <div class="light-effect" id="light-effect"></div>
     </div>
+
 	<div class="slot-wrapp" id="machineactual">
       <div class="slotwrapper" id="example1">
         <ul>
@@ -191,56 +194,73 @@
     }, 5000); // Confetti lasts for 5 seconds
   }
   
-  
-  
-  
   const audio = new Audio("song.mp3"); // Load the MP3 file
 audio.loop = true; // Enable infinite looping
 audio.volume = 0.5; // Optional: Set volume (0.0 to 1.0)
+
 const start_btn = document.getElementById("btn-example1");
 const slotwrapper = document.getElementById("machineactual");
 const dots = document.querySelectorAll(".dot, .dotupper");
+const glove = document.getElementById("glove");
+const lightEffect = document.getElementById("light-effect");
 
-
-start_btn.onclick = function () {
+start_btn.onclick = function (event) {
   if (running) return;
   running = true;
 
   // Start playing the audio
   audio.play();
+
   const img = start_btn.querySelector("img");
   img.style.transition = "transform 0.5s ease-out";
   img.style.transform = "scale(1.4) translateY(-20px)";
 
+  // Show and animate the glove punch
+  const rect = img.getBoundingClientRect();
+  glove.style.display = "block";
+  glove.style.opacity = "1";
+  glove.style.transition = "transform 0.4s ease-out";
+  glove.style.transform = `translate(${event.clientX - rect.left - 100}px, ${event.clientY - rect.top - 100}px)`;
+
+  setTimeout(() => {
+    glove.style.animation = "glove-punch 0.6s ease-out";
+  }, 100);
+
+  setTimeout(() => {
+    glove.style.display = "none";
+    glove.style.animation = "none";
+  }, 600);
+
+  // Animate the bag with tilt and bend effects
+  img.classList.add("hit");
+
+  // Trigger the light effect
+  lightEffect.style.animation = "light-flash 0.5s ease-out";
+
   setTimeout(() => {
     img.style.transform = "scale(0) translateY(-20px)";
+    img.classList.remove("hit");
+
+    start_btn.style.transition = "opacity 0.5s ease-out"; // Smooth fade-out
+    start_btn.style.opacity = "0";
 
     setTimeout(() => {
-      start_btn.style.transition = "opacity 0.5s ease-out"; // Smooth fade-out
-      start_btn.style.opacity = "0";
+      start_btn.style.display = "none"; // Hide element after fade-out
 
-      setTimeout(() => {
-        start_btn.style.display = "none"; // Hide element after fade-out
+      // Bring the slotwrapper onto the screen
+      slotwrapper.style.display = "flex"; // Or any display style you prefer
+      slotwrapper.style.transition = "opacity 0.5s ease-in-out";
+      slotwrapper.style.opacity = "1"; // Fade in the slotwrapper immediately
+    }, 0); // Remove delay for slotwrapper display
+  }, 800); // Matches the hit effect duration
 
-        // Bring the slotwrapper onto the screen
-	      
-	 slotwrapper.style.display = "flex"; // Or any display style you prefer
-        slotwrapper.style.transition = "opacity 0.5s ease-in-out";
-        setTimeout(() => {
-          slotwrapper.style.opacity = "1"; // Fade in the slotwrapper
-		 }, 50); // Slight delay to ensure display is applied before opacity
-      }, 500); // Matches the fade-out duration
-    }, 500); // Matches the scale-down duration
-  }, 500); // Matches the scale-up duration
-
-  start_btn.setAttribute("disabled", "disabled");
   value1.classList.add("down");
   value2.classList.add("up");
   value3.classList.add("down");
 
   function animateSlot() {
-    const iterations = 50;
-    const interval = 200;
+    const iterations = 30; // Reduced iterations for slower effect
+    const interval = 300; // Increased interval for slower speed
 
     let currentIteration = 0;
     const animationInterval = setInterval(() => {
@@ -257,38 +277,35 @@ start_btn.onclick = function () {
           value1.classList.remove("down");
           value2.classList.remove("up");
           value3.classList.remove("down");
-		         dots.forEach(dot => {
+          dots.forEach(dot => {
             dot.classList.remove("dotlose");
             dot.classList.add("dotwin"); // Add win effect
-        });
-		 resultsHeading.style.padding = "5px 10px";
+          });
+          resultsHeading.style.padding = "5px 10px";
           blinkingFilter();
           startConfetti();
-          resultsHeading.innerText =
-            "You won 200 tokens!!";
+          resultsHeading.innerText = "You won 200 tokens!!";
         } else {
           value1.classList.remove("down");
           value2.classList.remove("up");
           value3.classList.remove("down");
           blinkingFilter();
-		    dots.forEach(dot => {
+          dots.forEach(dot => {
             dot.classList.remove("dotwin");
             dot.classList.add("dotlose"); // Add lose effect
-        });
-		  resultsHeading.style.padding = "5px 10px";
+          });
+          resultsHeading.style.padding = "5px 10px";
           resultsHeading.innerText = "Better luck next time!";
         }
 
         start_btn.removeAttribute("disabled");
         running = false;
-		 // audio.pause();
       }
     }, interval);
   }
 
   animateSlot();
 };
-
 
   // Resize canvas dynamically
   window.addEventListener("resize", () => {
