@@ -19,6 +19,15 @@
    
   <div class="container">
 	
+
+<div class="form-container" id="formContainer">
+  <h1>You have won 200 tokens. Please enter your email below.</h1>
+  <form id="tokenForm">
+    <input type="email" id="email" name="email" placeholder="Enter your email" >
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
 	<section class="machine-section">
   <div class="mainContainer">
      <div class="loader-container" id="btn-example1">
@@ -105,6 +114,8 @@
   const value3 = document.querySelector("#example1 ul:nth-child(3) li img");
   const resultsHeading = document.getElementById("results-heading");
   const machineactual = document.getElementById("machineactual");
+  const formContainer = document.getElementById("formContainer");
+  
   let running = false;
 
   // Create and initialize a canvas for the confetti animation
@@ -281,11 +292,14 @@ start_btn.onclick = function (event) {
             dot.classList.remove("dotlose");
             dot.classList.add("dotwin"); // Add win effect
           });
+		  formContainer.style.display = 'block';
           resultsHeading.style.padding = "5px 10px";
           blinkingFilter();
           startConfetti();
           resultsHeading.innerText = "You won 200 tokens!!";
         } else {
+		
+		  formContainer.style.display = 'block';
           value1.classList.remove("down");
           value2.classList.remove("up");
           value3.classList.remove("down");
@@ -316,6 +330,44 @@ start_btn.onclick = function (event) {
   // Set initial canvas size
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
+</script>
+
+<script>
+  document.getElementById('tokenForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const emailInput = document.getElementById('email');
+    const email = emailInput.value;
+
+    if (!email) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    fetch('https://fantasymmadness-game-server-three.vercel.app/admin/add-tokens-won', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email }),
+    })
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error('Failed to award tokens.');
+        }
+      })
+      .then(data => {
+        alert('Tokens Awarded successfully!');
+        emailInput.value = '';
+		window.location.reload();
+      })
+      .catch(error => {
+        console.error(error);
+        alert('An error occurred. Please try again later.');
+      });
+  });
 </script>
 
 
