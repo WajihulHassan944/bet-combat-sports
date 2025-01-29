@@ -103,7 +103,7 @@
 	<h1>Fight Night</h1>
 		<img src="images/two.png">
 	</div>
-
+<h1 id="played">You have already played !!!</h1>
 <img src="images/logo.png" class="logo">
 
 <img src="images/seven.png" class="branding">
@@ -368,6 +368,40 @@ start_btn.onclick = function (event) {
       alert('An error occurred. Please try again later.');
     });
   });
+</script>
+<script>
+  // Function to fetch device info and check for matching deviceId
+  async function checkDevice() {
+    try {
+      // Fetch device info from the API
+      const response = await fetch('https://fantasymmadness-game-server-three.vercel.app/admin/device-info');
+      
+      // Wait for the response to be converted to JSON
+      const data = await response.json();
+      
+      const deviceId = navigator.userAgent;  // Fetch device info using userAgent
+      let isMatched = false;  // Flag to track if there's a match
+
+      // Loop through the API data to check if the deviceId matches
+      for (let item of data) {
+        if (item.deviceId === deviceId) {
+          isMatched = true;
+          break;  // Exit loop once a match is found
+        }
+      }
+
+      if (isMatched) {
+        // If a match is found, hide the button and show the message
+        document.getElementById('btn-example1').style.display = 'none';
+        document.getElementById('played').style.display = 'block';
+      }
+    } catch (error) {
+      console.error('Error fetching device info:', error);
+    }
+  }
+
+  // Call the checkDevice function
+  checkDevice();
 </script>
 
 
