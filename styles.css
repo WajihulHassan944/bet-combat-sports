@@ -669,3 +669,8 @@ opacity:0;
 	transform:translate(-50%,-50%);
 	display:none;
 	}
+	
+	
+	#btn-example1{
+		display:none;
+	}

@@ -409,7 +409,10 @@ start_btn.onclick = function (event) {
         // If a match is found, hide the button and show the message
         document.getElementById('btn-example1').style.display = 'none';
         document.getElementById('played').style.display = 'block';
-      }
+      }else{
+		  document.getElementById('btn-example1').style.display = 'block';
+      
+	  }
     } catch (error) {
       console.error('Error fetching device info:', error);
     }
