@@ -309,7 +309,22 @@ start_btn.onclick = function (event) {
           });
           resultsHeading.style.padding = "5px 10px";
           resultsHeading.innerText = "Better luck next time!";
-        }
+         const deviceId = navigator.userAgent;
+	   fetch('https://fantasymmadness-game-server-three.vercel.app/admin/add-device', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ deviceId }),  // Send the deviceId in the request body
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Device ID sent successfully:', data);
+  })
+  .catch(error => {
+    console.error('Error sending device ID:', error);
+  });
+}
 
         start_btn.removeAttribute("disabled");
         running = false;
