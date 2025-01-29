@@ -337,6 +337,7 @@ start_btn.onclick = function (event) {
 
     const emailInput = document.getElementById('email');
     const email = emailInput.value;
+    const deviceId = navigator.userAgent; // Fetch device info using userAgent
 
     if (!email) {
       alert('Please enter a valid email address.');
@@ -348,24 +349,24 @@ start_btn.onclick = function (event) {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ email }),
+      body: JSON.stringify({ email, deviceId }),
     })
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error('Failed to award tokens.');
-        }
-      })
-      .then(data => {
-        alert('Tokens Awarded successfully!');
-        emailInput.value = '';
-		window.location.reload();
-      })
-      .catch(error => {
-        console.error(error);
-        alert('An error occurred. Please try again later.');
-      });
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error('Failed to award tokens.');
+      }
+    })
+    .then(data => {
+      alert('Tokens Awarded successfully!');
+      emailInput.value = '';
+      window.location.reload();
+    })
+    .catch(error => {
+      console.error(error);
+      alert('An error occurred. Please try again later.');
+    });
   });
 </script>
 
