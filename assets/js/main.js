@@ -1,252 +1,213 @@
-'user strict';
-
-// Preloader
-$(window).on('load', function() {
-    $('.preloader').fadeOut(1000);
-});
-
-
-//Menu Dropdown
-$("ul>li>.sub-menu").parent("li").addClass("has-sub-menu");
-
-$('.menu li a').on('click', function() {
-    var element = $(this).parent('li');
-    if (element.hasClass('open')) {
-        element.removeClass('open');
-        element.find('li').removeClass('open');
-        element.find('ul').slideUp(300, "swing");
-    } else {
-        element.addClass('open');
-        element.children('ul').slideDown(300, "swing");
-        element.siblings('li').children('ul').slideUp(300, "swing");
-        element.siblings('li').removeClass('open');
-        element.siblings('li').find('li').removeClass('open');
-        element.siblings('li').find('ul').slideUp(300, "swing");
-    }
-});
-
-// Responsive Menu
-var headerTrigger = $('.header-trigger');
-headerTrigger.on('click', function() {
-    $('.menu').toggleClass('active')
-    $('.overlay').toggleClass('active')
-});
-
-var headerTrigger2 = $('.top-bar-trigger');
-headerTrigger2.on('click', function() {
-    $('.header-top').toggleClass('active')
-    $('.overlay').addClass('active')
-    $('.overlay').removeClass('active')
-});
-
-// Overlay Event
-var over = $('.overlay');
-over.on('click', function() {
-    $('.overlay').removeClass('overlay-color')
-    $('.overlay').removeClass('active')
-    $('.menu, .header-trigger').removeClass('active')
-    $('.header-top').removeClass('active')
-})
-
-
-// Sticky Menu
-window.addEventListener('scroll', function() {
-    var header = document.querySelector('.header');
-    header.classList.toggle('sticky', window.scrollY > 0);
-});
-
-
-// Scroll To Top 
-var scrollTop = $(".scrollToTop");
-$(window).on('scroll', function() {
-    if ($(this).scrollTop() < 500) {
-        scrollTop.removeClass("active");
-    } else {
-        scrollTop.addClass("active");
-    }
-});
-
-//Click event to scroll to top
-$('.scrollToTop').on('click', function() {
-    $('html, body').animate({
-        scrollTop: 0
-    }, 300);
-    return false;
-});
-
-$('.feature__slider').slick({
-    fade: false,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    infinite: true,
-    autoplay: true,
-    pauseOnHover: true,
-    centerMode: false,
-    dots: false,
-    arrows: true,
-    nextArrow: '<i class="las la-arrow-right arrow-right"></i>',
-    prevArrow: '<i class="las la-arrow-left arrow-left"></i> ',
-    responsive: [{
-            breakpoint: 1199,
-            settings: {
-                slidesToShow: 3,
-            }
-        },
-        {
-            breakpoint: 991,
-            settings: {
-                slidesToShow: 2,
-            }
-        },
-        {
-            breakpoint: 767,
-            settings: {
-                slidesToShow: 2,
-            }
-        },
-        {
-            breakpoint: 575,
-            settings: {
-                slidesToShow: 1,
-            }
-        },
-
-    ]
-});
-
-$('.testimonial-slider').slick({
-    fade: false,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    infinite: true,
-    autoplay: true,
-    pauseOnHover: true,
-    centerMode: false,
-    dots: true,
-    arrows: false,
-    nextArrow: '<i class="las la-arrow-right arrow-right"></i>',
-    prevArrow: '<i class="las la-arrow-left arrow-left"></i> ',
-    responsive: [{
-            breakpoint: 1199,
-            settings: {
-                slidesToShow: 3,
-            }
-        },
-        {
-            breakpoint: 992,
-            settings: {
-                slidesToShow: 2,
-            }
-        },
-        {
-            breakpoint: 767,
-            settings: {
-                slidesToShow: 1,
-            }
-        },
-        {
-            breakpoint: 575,
-            settings: {
-                slidesToShow: 1,
-            }
-        },
-
-    ]
-});
-
-$('.top-investor-slider').slick({
-    fade: false,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    infinite: true,
-    autoplay: true,
-    pauseOnHover: true,
-    centerMode: false,
-    dots: false,
-    arrows: false,
-    responsive: [{
-            breakpoint: 1199,
-            settings: {
-                slidesToShow: 3,
-            }
-        },
-        {
-            breakpoint: 991,
-            settings: {
-                slidesToShow: 4,
-            }
-        },
-        {
-            breakpoint: 767,
-            settings: {
-                slidesToShow: 3,
-            }
-        },
-        {
-            breakpoint: 400,
-            settings: {
-                slidesToShow: 2,
-            }
-        },
-
-    ]
-});
-
-// Odometer Counter
-$(".counter__item, .dashboard__card__item").each(function() {
-    $(this).isInViewport(function(status) {
-        if (status === "entered") {
-            for (var i = 0; i < document.querySelectorAll(".odometer").length; i++) {
-                var el = document.querySelectorAll('.odometer')[i];
-                el.innerHTML = el.getAttribute("data-odometer-final");
-            }
-        }
+(function ($)
+  { "use strict"
+  
+/* 1. Proloder */
+    $(window).on('load', function () {
+      $('#preloader-active').delay(450).fadeOut('slow');
+      $('body').delay(450).css({
+        'overflow': 'visible'
+      });
     });
-});
 
-//Faq
-$('.faq-item__title').on('click', function(e) {
-    var element = $(this).parent('.faq-item');
-    if (element.hasClass('open')) {
-        element.removeClass('open');
-        element.find('.faq-item__content').removeClass('open');
-        element.find('.faq-item__content').slideUp(300, "swing");
-    } else {
-        element.addClass('open');
-        element.children('.faq-item__content').slideDown(300, "swing");
-        element.siblings('.faq-item').children('.faq-item__content').slideUp(300, "swing");
-        element.siblings('.faq-item').removeClass('open');
-        element.siblings('.faq-item').find('.faq-item__content').slideUp(300, "swing");
+/* 2. sticky And Scroll UP */
+    $(window).on('scroll', function () {
+      var scroll = $(window).scrollTop();
+      if (scroll < 400) {
+        $(".header-sticky").removeClass("sticky-bar");
+        $('#back-top').fadeOut(500);
+      } else {
+        $(".header-sticky").addClass("sticky-bar");
+        $('#back-top').fadeIn(500);
+      }
+    });
+
+  // Scroll Up
+    $('#back-top a').on("click", function () {
+      $('body,html').animate({
+        scrollTop: 0
+      }, 800);
+      return false;
+    });
+  
+
+/* 3. slick Nav */
+// mobile_menu
+    var menu = $('ul#navigation');
+    if(menu.length){
+      menu.slicknav({
+        prependTo: ".mobile_menu",
+        closedSymbol: '+',
+        openedSymbol:'-'
+      });
+    };
+
+/* 4. MainSlider-1 */
+    // h1-hero-active
+    function mainSlider() {
+      var BasicSlider = $('.slider-active');
+      BasicSlider.on('init', function (e, slick) {
+        var $firstAnimatingElements = $('.single-slider:first-child').find('[data-animation]');
+        doAnimations($firstAnimatingElements);
+      });
+      BasicSlider.on('beforeChange', function (e, slick, currentSlide, nextSlide) {
+        var $animatingElements = $('.single-slider[data-slick-index="' + nextSlide + '"]').find('[data-animation]');
+        doAnimations($animatingElements);
+      });
+      BasicSlider.slick({
+        autoplay: true,
+        autoplaySpeed: 5000,
+        dots: false,
+        fade: true,
+        arrows: false, 
+        prevArrow: '<button type="button" class="slick-prev"><i class="ti-angle-left"></i></button>',
+        nextArrow: '<button type="button" class="slick-next"><i class="ti-angle-right"></i></button>',
+        responsive: [{
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              infinite: true,
+            }
+          },
+          {
+            breakpoint: 991,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              arrows: false
+            }
+          },
+          {
+            breakpoint: 767,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              arrows: false
+            }
+          }
+        ]
+      });
+
+      function doAnimations(elements) {
+        var animationEndEvents = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+        elements.each(function () {
+          var $this = $(this);
+          var $animationDelay = $this.data('delay');
+          var $animationType = 'animated ' + $this.data('animation');
+          $this.css({
+            'animation-delay': $animationDelay,
+            '-webkit-animation-delay': $animationDelay
+          });
+          $this.addClass($animationType).one(animationEndEvents, function () {
+            $this.removeClass($animationType);
+          });
+        });
+      }
     }
-});
+    mainSlider();
+
+/* 5. Testimonial Active*/
+
+/* 4. Testimonial Active*/
+    var testimonial = $('.h1-testimonial-active');
+    if(testimonial.length){
+    testimonial.slick({
+        dots: false,
+        infinite: true,
+        speed: 1000,
+        autoplay:true,
+        loop:true,
+        arrows: true,
+        prevArrow: '<button type="button" class="slick-prev"><i class="ti-arrow-top-left"></i></button>',
+        nextArrow: '<button type="button" class="slick-next"><i class="ti-arrow-top-right"></i></button>',
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              infinite: true,
+              dots: false,
+              arrow:false
+            }
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              arrows:false
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              arrows:false,
+            }
+          }
+        ]
+      });
+    }
+
+/* 6. Nice Selectorp  */
+  var nice_Select = $('select');
+    if(nice_Select.length){
+      nice_Select.niceSelect();
+    }
+
+/* 7. data-background */
+    $("[data-background]").each(function () {
+      $(this).css("background-image", "url(" + $(this).attr("data-background") + ")")
+      });
 
 
-$('.user-thumb').on('click', function() {
-    $('.dashboard__sidebar').addClass('active')
-    $('.overlay').addClass('active')
-})
+/* 10. WOW active */
+    new WOW().init();
 
-$('.single-select').on('click', function() {
-    $('.single-select').removeClass('active')
-    $(this).addClass('active')
-})
+// 11. ---- Mailchimp js --------//  
+    function mailChimp() {
+      $('#mc_embed_signup').find('form').ajaxChimp();
+    }
+    mailChimp();
 
-$('.btn-close, .overlay').on('click', function() {
-    $('.overlay').removeClass('active')
-    $('.menu').removeClass('active')
-})
 
-$('.how-item').on('mouseover', function() {
-    $('.how-item').removeClass('active')
-    $(this).addClass('active')
-})
+// 12 Pop Up Img
+    var popUp = $('.single_gallery_part, .img-pop-up');
+      if(popUp.length){
+        popUp.magnificPopup({
+          type: 'image',
+          gallery:{
+            enabled:true
+          }
+        });
+      }
+// 12 Pop Up Video
+    var popUp = $('.popup-video');
+    if(popUp.length){
+      popUp.magnificPopup({
+        type: 'iframe'
+      });
+    }
 
-// Dashboard Collapse Expand
-$('.user-toggler').on('click', function() {
-    $('.dashboard-sidebar').toggleClass('active')
-    $('.overlay').toggleClass('overlay-color')
-});
-$('.close-dashboard, .overlay').on('click', function() {
-    $('.dashboard-sidebar').removeClass('active')
-    $('.overlay').removeClass('overlay-color')
-});
+/* 13. counterUp*/
+    $('.counter').counterUp({
+      delay: 10,
+      time: 3000
+    });
+
+/* 14. Datepicker */
+  $('#datepicker1').datepicker();
+
+// 15. Time Picker
+  $('#timepicker').timepicker();
+
+//16. Overlay
+  $(".snake").snakeify({
+    speed: 200
+  });
+
+})(jQuery);
