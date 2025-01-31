@@ -566,7 +566,11 @@ start_btn.onclick = function (event) {
     </section>
     <!-- Services End -->
 	
-	<img src="images/fifteen.png" style="width:100%;">
+	<section class="promo">
+	<h1>Bet Combat Sports</h1>
+	<h2>Fight Like A <span>Champion</span></h2>
+	</section>
+	<img src="images/none.jpg" style="width:100%;">
 	
 	
 	
