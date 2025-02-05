@@ -808,8 +808,15 @@ header h1{
   background-color: #030616;
   color:#fff;
   width: 100%;
+  padding-top: 20px;
+  padding-bottom: 50px;
 }
-
+.eight-section h1{
+  padding: 50px 0 40px 0;
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 700;
+}
 .eight-section form{
   width: 100%;
 }
@@ -833,4 +840,104 @@ header h1{
 
 .contact-wrap .contact-input-group input{
   width: 100%;
+  border: 2px solid #303548;
+    background: #0d0f15;
+    padding: 14px;
+    font-size: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    color: #fff;
+    outline: none;
+}
+
+.contact-wrap .contact-input-group input:focus,
+.contact-wrap .contact-input-group input:active,
+.contact-wrap .contact-input-group textarea:focus,
+.contact-wrap .contact-input-group textarea:active {
+    background: #0d0f15; /* Ensures the background remains unchanged */
+    border-color: #4a90e2; /* Optional: Change border color when focused */
+    box-shadow: 0 0 5px #303548;
+}
+.contact-wrap .contact-input-group textarea{
+  width: 100%;
+  border: 2px solid #303548;
+    background: #0d0f15;
+    padding: 14px;
+    font-size: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    height: 150px;
+    color: #fff;
+}
+
+.eight-section form button{
+  background:#878998;
+  color:#303548;
+  border-radius: 5px;
+    border: none;
+    font-weight: 700;
+    padding: 13px;
+    text-align: center;
+    width:100%;
+    cursor: pointer;
+}
+.eight-section .lineInEight{
+  width:100%;
+  height: 2px;
+  background-color: #303548;
+  margin:60px 0;
+}
+.eight-section p{
+  font-size: 15px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.eight-section p span{
+  color:#00adee;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 768px) {
+  .eight-section {
+      padding-top: 20px;
+      padding-bottom: 30px;
+      min-height: auto;
+  }
+  
+  .eight-section h1 {
+      padding: 30px 0 20px 0;
+      font-size: 20px;
+      line-height: 26px;
+      text-align: center;
+      margin-bottom: 20px;
+  }
+  
+  .eight-section .contact-wrap {
+      max-width: 90%;
+      align-items: center;
+  }
+  
+  .eight-section .contact-wrap .contact-input-group {
+      width: 100%;
+  }
+  
+  .contact-wrap .contact-input-group input,
+  .contact-wrap .contact-input-group textarea {
+      padding: 12px;
+      font-size: 14px;
+  }
+  
+  .eight-section form button {
+      padding: 12px;
+      font-size: 14px;
+  }
+  
+  .eight-section .lineInEight {
+      margin: 40px 0;
+  }
+  
+  .eight-section p {
+      font-size: 14px;
+  }
 }

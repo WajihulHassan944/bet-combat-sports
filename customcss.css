@@ -473,10 +473,26 @@ opacity:0;
 	.branding{
 		display:none;
 	}
-	.logoInMachine, .logo{
+	.logoInMachine, .logomine{
 		display:none;
 	}
 	
+.fighter{
+	position:absolute;
+	top:45%;
+	left:-29px;
+}
+
+.fighterTwo{
+	position:absolute;
+	top:43%;
+	left:58%;
+}
+.slot-wrapp{
+ margin-left: -150px;  
+ overflow-x: visible; 
+    }
+  
 
 }
 
