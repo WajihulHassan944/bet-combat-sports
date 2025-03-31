@@ -4,7 +4,7 @@ import FourTwo from "../../Assets/affiliateDashboard/fourone.png";
 import Five from "../../Assets/affiliateDashboard/five.png";
 import Six from "../../Assets/affiliateDashboard/six.png";
 import { useRouter } from 'next/router';
-import "../HowToPlay/HowToPlay.css";
+import "../HowToPlay/HowToPlay.module.css";
 import Image from 'next/image';
 const HowItWorks = () => {
     const router = useRouter();

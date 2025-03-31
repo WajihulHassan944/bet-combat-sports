@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import "./YourFights.css";
-import "../CreateAccount/Membership.css";
-import "../Dashboard/Dashboard.css";
-import "../Dashboard/FightCosting.css";
+import "./YourFights.module.css";
+import "../CreateAccount/Membership.module.css";
+import "../Dashboard/Dashboard.module.css";
+import "../Dashboard/FightCosting.module.css";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchMatches } from '../../Redux/matchSlice';
 import { useRouter } from 'next/router';

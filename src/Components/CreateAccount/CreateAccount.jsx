@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import "./CreateAccount.css";
+import "./CreateAccount.module.css";
 import backgroundImg from "../../Assets/new-bg.png";
 import Thankyou from './Thankyou';  // Import Thankyou component
 import UploadAvatar from './UploadAvatar';  // Import UploadAvatar component

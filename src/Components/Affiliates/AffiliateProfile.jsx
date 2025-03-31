@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import "../CreateAccount/CreateAccount.css";
-import "../UserProfile/Profile.css";
-import "./affiliateprofile.css";
+import "../CreateAccount/CreateAccount.module.css";
+import "../UserProfile/Profile.module.css";
+import "./affiliateprofile.module.css";
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
 

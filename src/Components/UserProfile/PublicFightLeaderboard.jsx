@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import FighterOne from "../../Assets/fighterOne.png";
 import { useSelector } from 'react-redux';
-import "../GlobalLeaderboard/FightLeaderboard.css";
-import "../GlobalLeaderboard/GlobalLeaderboard.css";
-import "../CreateAccount/Membership.css";
-import "../Dashboard/FightDetails.css";
+import "../GlobalLeaderboard/FightLeaderboard.module.css";
+import "../GlobalLeaderboard/GlobalLeaderboard.module.css";
+import "../CreateAccount/Membership.module.css";
+import "../Dashboard/FightDetails.module.css";
 const PublicFightLeaderboard = ({ matchId ,name, plan, profileUrl }) => {
     const [scores, setScores] = useState([]);
   const [users, setUsers] = useState([]);

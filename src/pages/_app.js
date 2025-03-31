@@ -17,20 +17,8 @@ import Head from "next/head";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import "../Components/Affiliates/AffiliateMatchDetailsCss.css";
+import "react-calendar/dist/Calendar.css";
 
-import '../Components/YourFights/YourFights.css';
-import "../Components/CreateAccount/Membership.css";
-import "../Components/Dashboard/Dashboard.css";
-import "../Components/PastFightsNew/style.css";
-import "../Components/Login/Login.css";
-import "../Components/CreateAccount/CreateAccount.css";
-import "../Components/Affiliates/promo.css";
-
-
-import "../Components/Admin/AddNewMatch.css";
-import "../Components/CreateAccount/Membership.css";
-import "../Components/PastFightsNew/style.css";
 
 
 function App({ Component, ...rest }) {

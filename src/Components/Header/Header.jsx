@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../Redux/authSlice';
 import {logoutAffiliate} from "../../Redux/affiliateAuthSlice";
 import Logo from "../../Assets/logo.png";
-import "./Header.css";
+import "./Header.module.css";
 import Link from "next/link"; 
 import { toast } from 'react-toastify';
 import Image from "next/image";

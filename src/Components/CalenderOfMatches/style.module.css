@@ -1,5 +1,5 @@
 
-.calendar-of-matches-wrapper {
+.calendarOfMatchesWrapper {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -13,7 +13,7 @@
     background-attachment: fixed;
   padding-top: 22%;
 }
-.calendar-of-matches-wrapper h1 {
+.calendarOfMatchesWrapper h1 {
     font-size: 80px;
     font-weight: 900;
     text-transform: uppercase;
@@ -30,7 +30,7 @@
   }
 
 @media(max-width:768px){
-    .calendar-of-matches-wrapper h1 {
+    .calendarOfMatchesWrapper h1 {
         font-size: 40px;
         text-align: center;
        }
@@ -38,7 +38,7 @@
 
 
 
-.custom-calendar-container {
+.customCalendarContainer {
     margin-top: 22%;
     margin-bottom: 100px;
     position: relative;
@@ -46,7 +46,7 @@
 
 
 
-.custom-calendar {
+.customCalendar {
     width: 100%;
     max-width: 600px;
     background: #271f29;
@@ -59,7 +59,7 @@
 }
 
 /* Month Heading Styling */
-.calendar-month {
+.calendarMonth {
     font-size: 26px;
     font-weight: bold;
     text-transform: uppercase;
@@ -114,15 +114,9 @@
 
 }
 
-/* Remove underline from weekday abbreviations */
-abbr[title] {
-    text-decoration: none;
-}
-
-
 /* Calendar Navigation Arrows */
 
-.custom-calendar-container .calendar-arrow {
+.customCalendarContainer .calendarArrow {
     position: absolute;
     bottom: -70px;
     right: 10px;
@@ -137,11 +131,11 @@ abbr[title] {
 }
 
 /* Spacing between buttons */
-.calendar-arrow.left {
+.calendarArrow.left {
     right: 60px;
 }
 
-.calendar-arrow:hover {
+.calendarArrow:hover {
     background: #1d252c;
     transform: scale(1.1);
 }
@@ -150,7 +144,7 @@ abbr[title] {
 
 @media(max-width:768px){
  
-.calendar-of-matches-wrapper {
+.calendarOfMatchesWrapper {
   padding:20px;
     padding-top: 70%;
 }   

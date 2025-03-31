@@ -1,5 +1,5 @@
 import React from 'react'; 
-import "./style.css";
+import "./style.module.css";
 import one from "../../Assets/calender/four.png";
 import two from "../../Assets/calender/six.png";
 import PastFightsContent from './PastFightsContent';

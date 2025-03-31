@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMatches } from "../../Redux/matchSlice";
 import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
-import "./style.css";
+import styles from "./style.module.css";
 import { useRouter } from "next/router";
 
 const CalenderOfMatches = () => {

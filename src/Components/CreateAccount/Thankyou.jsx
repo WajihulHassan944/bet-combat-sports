@@ -1,5 +1,5 @@
 import React from 'react';
-import "./Thankyou.css";
+import "./Thankyou.module.css";
 import Background from "../../Assets/thankyou.png";
 
 const Thankyou = ({ response }) => {

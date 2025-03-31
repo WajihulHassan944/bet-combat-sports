@@ -3,7 +3,7 @@
 
 
 
-.footer-distributed{
+.footerDistributed{
 	background-image: linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.8)),url(../../Assets/backtwo.png);
     background-size: cover;
     background-position: center;
@@ -18,34 +18,34 @@
 	
 }
 
-.footer-distributed .footer-left,
-.footer-distributed .footer-center,
-.footer-distributed .footer-right{
+.footerDistributed .footerLeft,
+.footerDistributed .footerCenter,
+.footerDistributed .footerRight{
 	display: inline-block;
 	vertical-align: top;
 }
 
 /* Footer left */
 
-.footer-distributed .footer-left{
+.footerDistributed .footerLeft{
 	width: 40%;
 }
 
 /* The company logo */
 
-.footer-distributed h3{
+.footerDistributed h3{
 	color:  #ffffff;
 	font: normal 36px 'Open Sans', cursive;
 	margin: 0;
 }
 
-.footer-distributed h3 span{
+.footerDistributed h3 span{
 	color:  lightseagreen;
 }
 
 /* Footer links */
 
-.footer-distributed .footer-links{
+.footerDistributed .footerLinks{
 	color:  #ffffff;
 	margin: 20px 0 12px;
 	padding: 0;
@@ -53,7 +53,7 @@
     gap:10px;
 }
 
-.footer-distributed .footer-links .footerlink{
+.footerDistributed .footerLinks .footerLink{
 	display:inline-block;
 	line-height: 1.8;
   font-weight:400;
@@ -63,7 +63,7 @@
     font-family: 'UfcSansRegular', Arial, sans-serif;
 }
 
-.footer-distributed .footer-company-name{
+.footerDistributed .footerCompanyName{
 	color:  #fff;
 	font-size: 14px;
 	font-weight: normal;
@@ -73,11 +73,11 @@
 
 /* Footer Center */
 
-.footer-distributed .footer-center{
+.footerDistributed .footerCenter{
 	width: 35%;
 }
 
-.footer-distributed .footer-center i{
+.footerDistributed .footerCenter i{
 	background-color:#fff;
 	color: red;
 	font-size: 25px;
@@ -90,12 +90,12 @@
 	vertical-align: middle;
 }
 
-.footer-distributed .footer-center i.fa-envelope{
+.footerDistributed .footerCenter i.fa-envelope{
 	font-size: 17px;
 	line-height: 38px;
 }
 
-.footer-distributed .footer-center p{
+.footerDistributed .footerCenter p{
 	display: inline-block;
 	color: #ffffff;
   font-weight:400;
@@ -103,30 +103,30 @@
 	margin:0;
 }
 
-.footer-distributed .footer-center p span{
+.footerDistributed .footerCenter p span{
 	display:block;
 	font-weight: normal;
 	font-size:14px;
 	line-height:2;
 }
 
-.footer-distributed .footer-center p a{
+.footerDistributed .footerCenter p a{
 	color:  #fff;
 	text-decoration: none;;
 }
 
 
-.footer-distributed .footer-links .link-1:before {
+.footerDistributed .footerLinks .link-1:before {
   content: none;
 }
 
 /* Footer Right */
 
-.footer-distributed .footer-right{
+.footerDistributed .footerRight{
 	width: 20%;
 }
 
-.footer-distributed .footer-company-about{
+.footerDistributed .footerCompanyAbout{
 	line-height: 20px;
 	color:  #92999f;
 	font-size: 13px;
@@ -134,7 +134,7 @@
 	margin: 0;
 }
 
-.footer-distributed .footer-company-about span{
+.footerDistributed .footerCompanyAbout span{
 	display: block;
 	color:  #ffffff;
 	font-size: 14px;
@@ -142,13 +142,13 @@
 	margin-bottom: 20px;
 }
 
-.footer-distributed .footer-icons{
+.footerDistributed .footerIcons{
 	margin-top: 25px;
 	display: flex;
 	gap:5px;
 }
 
-.footer-distributed .footer-icons a{
+.footerDistributed .footerIcons a{
 	display: inline-block;
 	width: 35px;
 	height: 35px;
@@ -169,45 +169,45 @@
 
 @media (max-width: 880px) {
 
-	.footer-distributed{
+	.footerDistributed{
 		font: bold 14px sans-serif;
 	}
 
-	.footer-distributed .footer-left,
-	.footer-distributed .footer-center,
-	.footer-distributed .footer-right{
+	.footerDistributed .footerLeft,
+	.footerDistributed .footerCenter,
+	.footerDistributed .footerRight{
 		display: block;
 		width: 100%;
 		margin-bottom: 40px;
 		text-align: center;
 	}
 
-	.footer-distributed .footer-center i{
+	.footerDistributed .footerCenter i{
 		margin-left: 0;
 	}
 
-	.footer-distributed .footer-icons{
+	.footerDistributed .footerIcons{
 		justify-content: center;
 		align-items: center;
 	}
 }
 
 
-.footer-left p{
+.footerLeft p{
 	margin:15px 0;
 	font-size: 15px;
 }
 
-.footer-left p a{
+.footerLeft p a{
 	font-size: 15px;
 	text-decoration: none;
 	color:#ccc;
 }
-.footer-center p{
+.footerCenter p{
 	display: flex !important;
 	flex-direction: column !important;
 }
-.footer-center .footerlink{
+.footerCenter .footerLink{
 	font-size: 21px !important;
 
 }

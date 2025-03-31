@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import "./CreateThread.css";
+import styles from "./CreateThread.module.css";
 import { useRouter } from 'next/router';
 const CreateThread = () => {
   const [title, setTitle] = useState('');
@@ -35,7 +35,7 @@ const CreateThread = () => {
   };
 
   return (
-    <div className='createThreadContainer'>
+    <div className={styles.createThreadContainer}>
       <h1>Create a New Post</h1>
       <form onSubmit={handleSubmit}>
         <div>

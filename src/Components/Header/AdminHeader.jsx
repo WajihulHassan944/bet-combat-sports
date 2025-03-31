@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { logoutAdmin } from '../../Redux/adminAuthSlice'; // Import logoutAdmin action
 import Logo from "../../Assets/logo.png";
-import "./Header.css";
+import "./Header.module.css";
 
 const AdminHeader = () => {
   const dispatch = useDispatch();

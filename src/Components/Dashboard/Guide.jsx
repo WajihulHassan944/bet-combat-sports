@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import "./guide.css";
+import "./guide.module.css";
 
 const Guide = () => {
     const [showArrowUp, setShowArrowUp] = useState(false);

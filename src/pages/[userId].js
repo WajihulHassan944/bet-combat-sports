@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import "../Components/UserProfile/publicProfile.css";
-import "../Components/Dashboard/Dashboard.css";
-import "../Components/Home/Home.css";
-import "../Components/YourFights/YourFights.css";
-import "../Components/Dashboard/FightCosting.css";
+import "../Components/UserProfile/publicProfile.module.css";
+import "../Components/Dashboard/Dashboard.module.css";
+import "../Components/Home/Home.module.css";
+import "../Components/YourFights/YourFights.module.css";
+import "../Components/Dashboard/FightCosting.module.css";
 import { useRouter } from 'next/router';
 import useLeaderboardData from '@/CustomFunctions/useLeaderboardData';
 import { fetchMatches } from '@/Redux/matchSlice';
 import PublicFightLeaderboard from '@/Components/UserProfile/PublicFightLeaderboard';
-import "../Components/CreateAccount/Membership.css";
+import "../Components/CreateAccount/Membership.module.css";
 const PublicProfile = () => {
     const dispatch = useDispatch();
     const matches = useSelector((state) => state.matches.data);

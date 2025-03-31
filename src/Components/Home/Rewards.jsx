@@ -3,7 +3,7 @@ import RewardTokens from "../../Assets/reward-freetokens.png";
 import RewardAdmin from "../../Assets/reward-admin.png";
 import RewardPot from "../../Assets/reward-pot.png";
 
-import "./Sponsors.css";
+import "./Sponsors.module.css";
 import Image from 'next/image';
 const Rewards = () => {
     return (

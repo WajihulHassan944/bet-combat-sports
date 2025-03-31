@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet'; // Import react-helmet
 import { useDispatch } from 'react-redux';
 import { stopMusic, playMusic } from '../../Redux/musicSlice';
-import './Home.css';
+import './Home.module.css';
 import MoneyOne from "../../Assets/money1.png";
 import MoneyTwo from "../../Assets/money2.png";
 import { Link } from 'react-router-dom';

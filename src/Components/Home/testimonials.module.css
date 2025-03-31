@@ -1,8 +1,3 @@
-:root {
-    --quote-bg-color: #f7f7f7;
-    --dot-color: #bbb;
-    --dot-active-color: #333;
-  }
   
   .responsive-quote {
     position: relative;

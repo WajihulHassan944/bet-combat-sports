@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import "./leagues.css";
+import "./leagues.module.css";
 import { fetchMatches } from '../../Redux/matchSlice';
 import { useRouter } from 'next/router';
-import "../CreateAccount/Membership.css";
-import "../Dashboard/Dashboard.css";
-import "../YourFights/YourFights.css";
+import "../CreateAccount/Membership.module.css";
+import "../Dashboard/Dashboard.module.css";
+import "../YourFights/YourFights.module.css";
 
 const Leagues = () => {
   const user = useSelector((state) => state.user);

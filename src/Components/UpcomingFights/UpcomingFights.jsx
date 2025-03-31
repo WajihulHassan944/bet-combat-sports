@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchMatches } from '../../Redux/matchSlice';
-import './UpcomingFightsUser.css';
+import './UpcomingFightsUser.module.css';
 import { useRouter } from 'next/router';
-import "../HomeAnother/Home.css";
-import "../Home/Home.css";
+import "../HomeAnother/Home.module.css";
+import "../Home/Home.module.css";
 const UpcomingFights = () => {
   const dispatch = useDispatch();
   const matches = useSelector((state) => state.matches.data);

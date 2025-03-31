@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import "./Profile.css";
-import "../CreateAccount/Membership.css";
-import "../CreateAccount/CreateAccount.css";
-import "../Affiliates/affiliateprofile.css";
+import "./Profile.module.css";
+import "../CreateAccount/Membership.module.css";
+import "../CreateAccount/CreateAccount.module.css";
+import "../Affiliates/affiliateprofile.module.css";
 import AddTokensToWallet from './AddTokensToWallet';
 import { toast } from 'react-toastify';
 import MembershipCheckout from '../CreateAccount/MembershipCheckout';
