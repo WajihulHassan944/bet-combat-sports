@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import "./Membership.module.css";
+import "./Membership.css";
 import MembershipCheckout from './MembershipCheckout';
 import { toast } from 'react-toastify';
 

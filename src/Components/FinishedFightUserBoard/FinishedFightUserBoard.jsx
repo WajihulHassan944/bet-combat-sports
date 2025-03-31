@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import "./FinishedFightUserBoard.module.css";
+import "./FinishedFightUserBoard.css";
 import { useSelector } from 'react-redux';
 import { getWinnerDetails } from '../../CustomFunctions/winnerUtils';
 import { useDispatch } from 'react-redux';
 import { stopMusic, playMusic } from '../../Redux/musicSlice';
-import "../Dashboard/FightDetails.module.css";
-import "../CreateAccount/CreateAccount.module.css";
-import "../GlobalLeaderboard/GlobalLeaderboard.module.css";
+import "../Dashboard/FightDetails.css";
+import "../CreateAccount/CreateAccount.css";
+import "../GlobalLeaderboard/GlobalLeaderboard.css";
 const FinishedFightUserBoard = ({ matchId }) => {
     const [scores, setScores] = useState([]);
     const [scoresHigh, setScoresHigh] = useState([]);

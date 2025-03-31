@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import FighterOne from "../../Assets/fighterOne.png";
-import "./FightLeaderboard.module.css";
-import "./FightLeaderboardUpdated.module.css";
+import "./FightLeaderboard.css";
+import "./FightLeaderboardUpdated.css";
 import { useSelector, useDispatch } from 'react-redux';
 import { stopMusic, playMusic } from '../../Redux/musicSlice';
 import { fetchMatches } from '../../Redux/matchSlice';

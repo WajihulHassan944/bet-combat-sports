@@ -23,7 +23,7 @@
   }
 
   
-.sponsorsWrap{
+.sponsors-wrap{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -36,7 +36,7 @@
     box-shadow: 0 2px 7px rgba(0, 0, 0, .15);
     position: relative;
    }
-   .sponsorsWrap .toAbsoluteDesign{
+   .sponsors-wrap .toabsolutedesign{
     position: absolute;
     top:70px;
     right:0;
@@ -44,7 +44,7 @@
     height:120px;
    }
    
-   .sponsorsWrap h1{
+   .sponsors-wrap h1{
     color: #d20a0a;
     font-size: 48px;
     text-align: center;
@@ -55,7 +55,7 @@
     position: relative;
     margin-bottom: 5px;
    }
-   .sponsorsWrap h1 img{
+   .sponsors-wrap h1 img{
     position: absolute;
     top:-24px;
     left:-46px;
@@ -63,7 +63,7 @@
     height:60px;
    }
   
-   .sponsorsWrap h2{
+   .sponsors-wrap h2{
     color: #d20a0a;
     font-size: 36px;
     text-align: center;
@@ -74,13 +74,13 @@ font-style: italic;
 margin-bottom: 20px;
    }
 
-   .sponsorsMain{
+   .sponsors-main{
     display: flex;
     flex-wrap: wrap;
     max-width: 1200px;
     margin-top:10px;
    }
-   .sponsorsMain a{
+   .sponsors-main a{
     text-decoration: none;
     display: flex;
     justify-content: center;
@@ -89,13 +89,13 @@ margin-bottom: 20px;
     flex-direction: column;
     gap:20px;
    }
-   .sponsorsMain a h1{
+   .sponsors-main a h1{
     color: rgb(210, 10, 10); /* Adjust color as needed */
     font-family: 'UFCSansCondensedBold';
     font-size: 24px;
     letter-spacing: normal;
    }
-   .sponsorsMain .sponsorItem{
+   .sponsors-main .sponsorItem{
     padding:16px;
     padding-top: 0;
     width:330px;
@@ -108,14 +108,14 @@ margin-bottom: 20px;
     position: relative;
     cursor: pointer;
    }
-   .sponsorsMain .sponsorItem img{
+   .sponsors-main .sponsorItem img{
     width:100%;
     height:100%;
 
    }
 
 
-  .sponsorContainerParent{
+  .sponsor-container-parent{
     display: flex;
     flex-wrap:wrap;
     justify-content: center;
@@ -141,7 +141,7 @@ color:#333 !important;
 
 
 
-.rewardsContainerParent{
+.rewards-container-parent{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -152,7 +152,7 @@ color:#333 !important;
     box-shadow: 0 2px 7px rgba(0, 0, 0, .15);
     padding:50px 0;
 }
-.rewardsContainerParent .rewardDescription{
+.rewards-container-parent .reward-description{
   margin-bottom: 50px;
   font-size: 20px;
     line-height: 1.5;
@@ -161,44 +161,44 @@ color:#333 !important;
     font-family: 'Roboto', sans-serif;
   font-weight: 500; /* Medium weight */
 }
-.rewardsContainerParent .rewardItemsWrap{
+.rewards-container-parent .reward-items-wrap{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap:50px;
 }
-.rewardItem{
+.reward-item{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap:20px;
 }
-.rewardItem h3{
+.reward-item h3{
   color: rgb(210, 10, 10); /* Adjust color as needed */
   font-family: 'UFCSansCondensedBold';
   font-size: 24px;
 
 }
 
-.rewardItem:nth-of-type(2) h3{
+.reward-item:nth-of-type(2) h3{
   color: rgb(171, 142, 61);
  
 }
 
-.rewardItem:nth-of-type(3) h3{
+.reward-item:nth-of-type(3) h3{
   color: rgb(0, 0, 0);
  
 }
-.rewardItem .rewardImage{
+.reward-item .reward-image{
    width: 100%;
    position: relative;
 }
-.rewardItem .rewardImage .rewardimage{
+.reward-item .reward-image .rewardimage{
   height: 320px;
 }
-.rewardItem .rewardImage .rewardAbsolute{
+.reward-item .reward-image .rewardAbsolute{
   position: absolute;
   top: 0;
   left:50%;
@@ -208,10 +208,10 @@ color:#333 !important;
   flex-direction: column;
   gap:144.5px;
 }
-.rewardItem .rewardImage .rewardAbsolute p,.rewardItem .rewardImage .rewardAbsolute h2{
+.reward-item .reward-image .rewardAbsolute p,.reward-item .reward-image .rewardAbsolute h2{
   color:#fff;
 }
-.rewardItem img{
+.reward-item img{
   width:330px;
 }
 
@@ -245,33 +245,33 @@ color:#333 !important;
 
 
   @media (max-width: 767px){
-    .rewardsContainerParent .rewardDescription{
+    .rewards-container-parent .reward-description{
       font-size: 20px;
     padding: 0 15px;
     }
     
-  .myAboutContent{
+  .myaboutcontent{
     width:90%;
    
   }
-  .sponsorContainerParent{
+  .sponsor-container-parent{
    
     gap:40px;
   }
-  .sponsorsWrap .toAbsoluteDesign{
+  .sponsors-wrap .toabsolutedesign{
     display: none;
   }
-  .sponsorsWrap h1{
+  .sponsors-wrap h1{
     font-size: 38px;
     font-weight: 600;
     letter-spacing: 2px;
    }
-   .sponsorsWrap h1 img{
+   .sponsors-wrap h1 img{
     width:50px;
     height:50px;
    }
   
-   .sponsorsWrap h2{
+   .sponsors-wrap h2{
     font-size: 30px;
      }
 

@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import React from 'react';
-import "../HowToPlay/HowToPlay.module.css";
+import "../HowToPlay/HowToPlay.css";
 const PlayForFree = () => {
   const router = useRouter();
 

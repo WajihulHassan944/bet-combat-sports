@@ -1,4 +1,4 @@
-.VideosContainerFighters {
+.VideosContainer-fighters {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,7 +9,7 @@
     padding-bottom: 70px;
 }
 
-.VideosContainerFighters h1 {
+.VideosContainer-fighters h1 {
     color: #d20a0a;
     font-size: 46px;
     text-align: center;
@@ -19,7 +19,7 @@
     margin-bottom: 20px;
 }
 
-.VideosContainerFighters h2 {
+.VideosContainer-fighters h2 {
     color: black;
     font-size: 27px; /* Adjusted for better spacing */
     text-align: center;

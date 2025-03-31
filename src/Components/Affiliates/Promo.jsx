@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
 import { fetchMatches } from '../../Redux/matchSlice';
 import AffiliateFightLeaderboard from './AffiliateFightLeaderboard';
-import "./promo.module.css";
+import "./promo.css";
 import title from "../../Assets/promotional/title.png";
 
 const Promo = () => {

@@ -7,12 +7,12 @@ import Facebook from "../../Assets/facebook-removebg-preview-two.png";
 import Twitter from "../../Assets/twitter-removebg-preview-two.png";
 import Insta from "../../Assets/insta-removebg-preview-two.png";
 import Tiktok from "../../Assets/tiktok.png";
-import styles from "./Footer.module.css";
+import "./Footer.css";
 
 const Footer = () => {
   return (
-    <footer className={styles.footerDistributed}>
-      <div className={styles.footerLeft}>
+    <footer className="footer-distributed">
+      <div className="footer-left">
         <Image src={Logo} alt="Logo" width={70} height={70} />
         <p>2350 Beaver Ruin Rd, Norcross Georgia 30071</p>
         <p>
@@ -20,28 +20,28 @@ const Footer = () => {
             Contact@fantasymmadness.com
           </a>
         </p>
-        <p className={styles.footerCompanyName}>Fantasy Mmadness © 2024</p>
+        <p className="footer-company-name">Fantasy Mmadness © 2024</p>
       </div>
 
-      <div className={styles.footerCenter}>
-        <p className={styles.footerLinks}>
-          <Link href="/privacy-policy" className={styles.footerLink}>
+      <div className="footer-center">
+        <p className="footer-links">
+          <Link href="/privacy-policy" className="footerlink">
             Privacy policy
           </Link>
-          <Link href="/terms-of-service" className={styles.footerLink}>
+          <Link href="/terms-of-service" className="footerlink">
             Terms of service
           </Link>
-          <Link href="/testimonials" className={styles.footerLink}>
+          <Link href="/testimonials" className="footerlink">
             Testimonials
           </Link>
-          <Link href="/contact" className={styles.footerLink}>
+          <Link href="/contact" className="footerlink">
             Contact
           </Link>
         </p>
       </div>
 
-      <div className={styles.footerRight}>
-        <p className={styles.footerCompanyAbout}>
+      <div className="footer-right">
+        <p className="footer-company-about">
           <span>About Fantasy Mmadness LLC</span>
           Fantasy Mmadness LLC is a company dedicated to creating engaging
           fantasy sports experiences for fans.{" "}
@@ -50,7 +50,7 @@ const Footer = () => {
           </Link>
         </p>
 
-        <div className={styles.footerIcons}>
+        <div className="footer-icons">
           <a
             href="https://www.facebook.com/share/2pzYV9XdQpAU7n6p/?mibextid=LQQJ4d"
             target="_blank"

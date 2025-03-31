@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { loginAdmin } from '../../Redux/adminAuthSlice';
 import { NavLink } from 'react-router-dom';
 import logoimage from "../../Assets/logo.png";
-import "./AdminLogin.module.css";
+import "./AdminLogin.css";
 
 const AdminLogin = () => {
   const [email, setEmail] = useState('');

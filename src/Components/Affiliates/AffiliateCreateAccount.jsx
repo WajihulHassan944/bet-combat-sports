@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "../CreateAccount/CreateAccount.module.css";
+import "../CreateAccount/CreateAccount.css";
 import AffiliateThankyou from './AffiliateThankyou';  // Import Thankyou component
 import ReCAPTCHA from "react-google-recaptcha";  // Import reCAPTCHA
 import Logo1 from "../../Assets/FA.png";

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import "../Dashboard/guide.module.css";
+import "../Dashboard/guide.css";
 const AffiliateGuide = () => {
     const [showArrowUp, setShowArrowUp] = useState(false);
    

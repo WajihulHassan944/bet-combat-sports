@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { stopMusic, playMusic } from '../../Redux/musicSlice';
-import './Home.module.css';
+import './Home.css';
 import Link from 'next/link';
 const HomeAnother = () => {
   const dispatch = useDispatch();

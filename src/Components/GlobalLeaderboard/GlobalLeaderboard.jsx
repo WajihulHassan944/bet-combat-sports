@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import './GlobalLeaderboard.module.css';
-import "../CreateAccount/Membership.module.css";
-import "../Dashboard/FightDetails.module.css";
-import "../Home/Home.module.css";
+import './GlobalLeaderboard.css';
+import "../CreateAccount/Membership.css";
+import "../Dashboard/FightDetails.css";
+import "../Home/Home.css";
 import FighterOne from '../../Assets/fighterOne.png';
 import useLeaderboardData from '../../CustomFunctions/useLeaderboardData';
 import { useRouter } from 'next/router';

@@ -162,7 +162,7 @@
 
 
 /* Container for the thread details */
-.threadDetailsContainerUpdated {
+.threadDetailsContainer-updated {
     display: flex;
     flex-direction: column;
     padding-top: 130px;
@@ -178,7 +178,7 @@
   }
 
 /* Thread title */
-.threadDetailsContainerUpdated h2 {
+.threadDetailsContainer-updated h2 {
    
     font-size: 60px;
     margin-bottom: 10px;
@@ -249,7 +249,7 @@
 
 
 /* Replies section */
-.threadDetailsContainerUpdated h3 {
+.threadDetailsContainer-updated h3 {
     font-size: 30px;
   margin-bottom: 10px;
   font-family: 'UfcSansRegular', Arial, sans-serif;color: #16B4CA;
@@ -258,7 +258,7 @@
 }
 
 /* Individual reply */
-.threadDetailsContainerUpdated .replyItem {
+.threadDetailsContainer-updated .replyItem {
     margin-bottom: 10px;
     padding: 15px;
     width: 100%;
@@ -272,31 +272,31 @@
     gap:20px;
 
 }
-.replyAuthorImage{
+.reply-author-image{
     width:75px;
     height:75px;
 }
-.replyAuthorImage img{
+.reply-author-image img{
     width:100%;
     height:100%;
     object-fit: cover;
 }
-.repliesBodyUpdated{
+.repliesBody-updated{
     font-size: 20px;
     margin-bottom: 5px;
     font-family: sans-serif;
 }
-.replyAuthorContents{
+.reply-author-contents{
     display: flex;
     flex-direction: column;
 }
-.replyItem .toMakeFlexDisplayUpdated{
+.replyItem .toMakeFlexDisplay-updated{
     display: flex;
     gap:30px;
     align-items: center;
 }
 /* Like button */
-.threadDetailsContainerUpdated button {
+.threadDetailsContainer-updated button {
     padding: 5px 15px;
     border: none;
     background-color: #d30c23;
@@ -309,7 +309,7 @@
 }
 
 /* Hover effect for like button */
-.threadDetailsContainerUpdated button:hover {
+.threadDetailsContainer-updated button:hover {
     background-color: #ff3b3b;
 }
 
@@ -324,7 +324,7 @@
     
 }
 /* Textarea for adding reply */
-.threadDetailsContainerUpdated textarea {
+.threadDetailsContainer-updated textarea {
     width: 100%;
     max-width: 400px;
     height: 100px;
@@ -337,7 +337,7 @@
 }
 
 /* Submit button */
-.threadDetailsContainerUpdated button[type="submit"] {
+.threadDetailsContainer-updated button[type="submit"] {
     padding: 10px 30px;
     background-color: #d30c23;
     color: #fff;
@@ -349,7 +349,7 @@
    }
 
 /* Hover effect for submit button */
-.threadDetailsContainerUpdated button[type="submit"]:hover {
+.threadDetailsContainer-updated button[type="submit"]:hover {
     background-color: #ff3b3b;
 }
 
@@ -357,7 +357,7 @@
 @media (max-width: 767px){
  
 /* Container for the thread details */
-.threadDetailsContainerUpdated {
+.threadDetailsContainer-updated {
     padding-top: 137px;
     padding-bottom: 70px;
     padding-left: 15px;
@@ -365,7 +365,7 @@
   }
 
 /* Thread title */
-.threadDetailsContainerUpdated h2 {
+.threadDetailsContainer-updated h2 {
    text-align: center;
     font-size: 30px;
     margin-bottom: 20px;
@@ -399,7 +399,7 @@
 }
 
 /* Submit button */
-.threadDetailsContainerUpdated button[type="submit"] {
+.threadDetailsContainer-updated button[type="submit"] {
     width:100%;
    }
 

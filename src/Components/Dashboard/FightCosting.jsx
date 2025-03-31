@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux'; // Import useSelector to access Redux store
-import "./FightCosting.module.css";
-import "./FightCostingUpdated.module.css";
+import "./FightCosting.css";
+import "./FightCostingUpdated.css";
 import MakePredictions from '../MakePredictions/MakePredictions'
 
 

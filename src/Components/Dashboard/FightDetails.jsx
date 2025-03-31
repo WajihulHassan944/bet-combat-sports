@@ -1,5 +1,5 @@
 import React from 'react'
-import "./FightDetails.module.css";
+import "./FightDetails.css";
 import Logoimage from "../../Assets/myimg.jpg";
 import FighterOne from "../../Assets/fighterOne.png";
 import FightTwo from "../../Assets/fighterTwo.png";

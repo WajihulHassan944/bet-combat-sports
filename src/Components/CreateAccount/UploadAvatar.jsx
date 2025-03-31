@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./UploadAvatar.module.css";
+import "./UploadAvatar.css";
 import Image from "../../Assets/logo.png";
 import Membership from './Membership'; // Import the Membership component
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import Logo from "../../Assets/fighterOne.png";
-import "./fightApproved.module.css";
+import "./fightApproved.css";
 const AffiliateFightApproved = () => {
     return (
         <div className='finishedFightUserBoard'>

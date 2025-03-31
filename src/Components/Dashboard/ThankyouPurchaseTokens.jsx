@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./thankyou-purchase-tokens.module.css";
+import "./thankyou-purchase-tokens.css";
 
 const ThankyouPurchaseTokens = ({ amount }) => {
   const [isVisible, setIsVisible] = useState(true);

@@ -1,5 +1,5 @@
 import React from 'react';
-import "../CreateAccount/Thankyou.module.css";
+import "../CreateAccount/Thankyou.css";
 import Background from "../../Assets/thankyou.png";
 
 const AffiliateThankyou = ({response}) => {

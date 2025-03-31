@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchMatches } from '../../Redux/matchSlice';
-import styles from "./PastFightVideos.module.css";
+import "./PastFightVideos.css";
 
 const PastFightVideos = () => {
   const dispatch = useDispatch();
@@ -43,12 +43,12 @@ const PastFightVideos = () => {
   });
 
   return (
-    <div className={styles.VideosContainerFighters}>
-      <h1 className={styles.VideosTitle}>Past Fight Videos</h1>
-      <div className={styles.videosWrap}>
+    <div className="VideosContainer-fighters">
+      <h1 className="VideosTitle">Past Fight Videos</h1>
+      <div className="videosWrap">
         {uniqueVideos.length > 0 ? (
           uniqueVideos.map((video, index) => (
-            <div className={styles.videoItem} key={index}>
+            <div className="videoItem" key={index}>
               <h2>{video.name}</h2>
               <iframe
                 width="560"

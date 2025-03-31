@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-import "../CreateAccount/CreateAccount.module.css";
+import "../CreateAccount/CreateAccount.css";
 import { GoogleLogin } from '@react-oauth/google';
 import { loginUser, fetchUser } from '../../Redux/authSlice';
 import Membership from '../CreateAccount/Membership';
-import "./Login.module.css";
+import "./Login.css";
 import ReCAPTCHA from "react-google-recaptcha";
 import AffiliateLogin from '../Affiliates/AffiliateLogin';
 import SponsorLogin from './SponsorLogin';
