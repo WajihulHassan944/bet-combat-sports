@@ -8,6 +8,9 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true, // Disable ESLint errors during build
   },
+  experimental: {
+    appDir: true, // Ensure Next.js recognizes the custom structure
+  },
 };
 
 export default nextConfig;
